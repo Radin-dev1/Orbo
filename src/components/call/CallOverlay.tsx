@@ -82,11 +82,11 @@ export function CallOverlay() {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-[#07070c]">
+    <div className="fixed inset-0 z-50 flex flex-col bg-[#061f1d]">
       <header className="flex items-center justify-between px-5 py-4">
         <div>
           <p className="text-sm font-semibold text-white">Orbo call</p>
-          <p className="flex items-center gap-1.5 text-xs text-text-dim">
+          <p className="flex items-center gap-1.5 text-xs text-white/55">
             <Wifi size={12} />
             {connecting ? "Connecting…" : `${total} in call`} ·{" "}
             <span className="tabular-nums">{formatCallDuration(elapsed)}</span>

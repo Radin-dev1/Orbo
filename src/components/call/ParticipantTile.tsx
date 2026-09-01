@@ -41,7 +41,7 @@ export function ParticipantTile({
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center overflow-hidden rounded-2xl border border-border bg-bg-elev",
+        "relative flex items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/30",
         connecting && "animate-pulse",
       )}
     >
@@ -55,7 +55,7 @@ export function ParticipantTile({
       {!hasVideo && (
         <div className="flex flex-col items-center gap-3">
           <Avatar id={userId} name={name} src={avatarUrl} size={84} />
-          {connecting && <span className="text-xs text-text-dim">connecting…</span>}
+          {connecting && <span className="text-xs text-white/60">connecting…</span>}
         </div>
       )}
 

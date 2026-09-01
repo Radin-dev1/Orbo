@@ -29,7 +29,7 @@ export function Modal({ open, onClose, title, children, className, hideClose }: 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0f1a1e]/35 p-4 backdrop-blur-sm"
       onMouseDown={onClose}
     >
       <div

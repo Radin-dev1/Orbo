@@ -79,10 +79,17 @@ export function MessageList({
   }
 
   return (
-    <div ref={scrollRef} onScroll={onScroll} className="min-h-0 flex-1 overflow-y-auto px-3 py-4 md:px-6">
+    <div
+      ref={scrollRef}
+      onScroll={onScroll}
+      className="chat-wallpaper min-h-0 flex-1 overflow-y-auto px-3 py-4 md:px-6"
+    >
       {hasMore && (
         <div className="flex justify-center pb-3">
-          <button onClick={onLoadMore} className="rounded-full bg-bg-elev-2 px-3 py-1 text-xs text-text-dim hover:text-text">
+          <button
+            onClick={onLoadMore}
+            className="rounded-full border border-border bg-bg-elev/85 px-3 py-1 text-xs text-text-dim shadow-sm backdrop-blur hover:text-text"
+          >
             Load earlier messages
           </button>
         </div>
@@ -112,7 +119,7 @@ export function MessageList({
           <div key={m.id}>
             {showDay && (
               <div className="my-4 flex items-center justify-center">
-                <span className="rounded-full bg-bg-elev-2 px-3 py-1 text-[11px] font-medium text-text-dim">
+                <span className="rounded-full border border-border bg-bg-elev/85 px-3 py-1 text-[11px] font-medium text-text-dim shadow-sm backdrop-blur">
                   {day}
                 </span>
               </div>

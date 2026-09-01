@@ -25,7 +25,7 @@ export function CallControls({
   onMinimize,
 }: Props) {
   return (
-    <div className="flex items-center gap-2.5 rounded-full border border-border bg-bg-elev/90 px-3 py-2.5 backdrop-blur">
+    <div className="flex items-center gap-2.5 rounded-full border border-white/10 bg-[#0b2b28]/90 px-3 py-2.5 backdrop-blur">
       <Ctl active={micOn} onClick={onToggleMic} on={<Mic size={20} />} off={<MicOff size={20} />} label="Mic" />
       <Ctl active={camOn} onClick={onToggleCam} on={<Video size={20} />} off={<VideoOff size={20} />} label="Camera" />
       <button
@@ -33,7 +33,7 @@ export function CallControls({
         title="Share screen"
         className={cn(
           "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
-          screenSharing ? "bg-accent-strong text-white" : "bg-bg-elev-2 text-text hover:bg-[#26263a]",
+          screenSharing ? "bg-accent-strong text-white" : "bg-white/12 text-white hover:bg-white/20",
         )}
       >
         <MonitorUp size={20} />
@@ -48,7 +48,7 @@ export function CallControls({
       <button
         onClick={onMinimize}
         title="Minimize"
-        className="flex h-11 w-11 items-center justify-center rounded-full bg-bg-elev-2 text-text hover:bg-[#26263a]"
+        className="flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white hover:bg-white/20"
       >
         <Minimize2 size={18} />
       </button>
@@ -75,7 +75,7 @@ function Ctl({
       title={label}
       className={cn(
         "flex h-11 w-11 items-center justify-center rounded-full transition-colors",
-        active ? "bg-bg-elev-2 text-text hover:bg-[#26263a]" : "bg-white text-bg",
+        active ? "bg-white/12 text-white hover:bg-white/20" : "bg-white text-[#0f1a1e]",
       )}
     >
       {active ? on : off}

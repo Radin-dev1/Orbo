@@ -59,7 +59,7 @@ export function Sidebar() {
     <div className="flex h-full flex-col">
       <header className="flex items-center justify-between px-4 pt-4 pb-3">
         <OrboWordmark />
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 md:hidden">
           <button
             onClick={() => setShowNew(true)}
             className="rounded-lg p-2 text-text-dim transition-colors hover:bg-bg-elev-2 hover:text-text"
@@ -99,7 +99,7 @@ export function Sidebar() {
       </header>
 
       <div className="px-3 pb-2">
-        <label className="flex items-center gap-2 rounded-xl border border-border bg-bg-elev-2 px-3">
+        <label className="flex items-center gap-2 rounded-full border border-border bg-bg-elev-2 px-4 transition-colors focus-within:border-accent">
           <Search size={15} className="text-text-faint" />
           <input
             value={query}

@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { NavRail } from "@/components/sidebar/NavRail";
 import { Sidebar } from "@/components/sidebar/Sidebar";
 import { CallOverlay } from "@/components/call/CallOverlay";
 import { IncomingCallModal } from "@/components/call/IncomingCallModal";
@@ -12,6 +13,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex h-full w-full overflow-hidden bg-bg">
+      <NavRail />
+
       <aside
         className={cn(
           "h-full w-full shrink-0 border-r border-border bg-bg-elev md:w-[var(--sidebar-w)]",

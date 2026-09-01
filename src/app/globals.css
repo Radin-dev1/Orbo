@@ -1,24 +1,36 @@
 @import "tailwindcss";
 
-/* ─────────────────────────────  Orbo theme  ───────────────────────────── */
+/* ─────────────────────────────  Orbo theme  ─────────────────────────────
+   Discord structure + Telegram warmth, in white & teal.
+   Light UI everywhere; the far-left nav rail is a deep teal (the "Discord"
+   server rail), the chat area carries a faint Telegram-style wallpaper. */
 :root {
-  --bg: #0b0b12;
-  --bg-elev: #14141f;
-  --bg-elev-2: #1c1c2b;
-  --border: #262636;
-  --text: #ececf3;
-  --text-dim: #9a9ab0;
-  --text-faint: #6b6b82;
-  --accent: #7c6cff;
-  --accent-strong: #6a58ff;
-  --accent-soft: rgba(124, 108, 255, 0.14);
-  --danger: #ff5c72;
-  --success: #35d08d;
-  --warning: #ffb454;
-  --bubble-me: #6a58ff;
-  --bubble-them: #1e1e2d;
+  --bg: #eef1f4;          /* app frame behind the panels */
+  --bg-elev: #ffffff;     /* sidebar + chat surfaces, cards, modals */
+  --bg-elev-2: #eef2f5;   /* inputs, hover chips, quiet fills */
+  --border: #dde4e9;      /* hairlines */
+  --text: #0f1a1e;        /* near-black slate */
+  --text-dim: #566871;
+  --text-faint: #92a2ab;
+  --accent: #14b8a6;         /* teal-500 */
+  --accent-strong: #0d9488;  /* teal-600 — filled buttons, send */
+  --accent-soft: rgba(20, 184, 166, 0.12);
+  --danger: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --bubble-me: #0d9488;   /* outgoing — teal, white text */
+  --bubble-them: #ffffff; /* incoming — white, bordered on the wallpaper */
+
+  /* Discord-style icon rail */
+  --rail-bg: #0c3a37;
+  --rail-fg: #8ed4cc;
+  --rail-fg-active: #ffffff;
+  --rail-active: #14b8a6;
+
+  --scroll-hover: #b7c4cc;
   --radius: 14px;
   --sidebar-w: 336px;
+  --rail-w: 68px;
 }
 
 @theme inline {
@@ -34,6 +46,8 @@
   --color-danger: var(--danger);
   --color-success: var(--success);
   --color-warning: var(--warning);
+  --color-rail-bg: var(--rail-bg);
+  --color-rail-fg: var(--rail-fg);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --radius-app: var(--radius);
 }
@@ -74,7 +88,7 @@ body {
   background-clip: content-box;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: #33334a;
+  background: var(--scroll-hover);
   background-clip: content-box;
 }
 
@@ -101,10 +115,10 @@ body {
 @keyframes orbo-ring {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(124, 108, 255, 0.5);
+    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5);
   }
   50% {
-    box-shadow: 0 0 0 14px rgba(124, 108, 255, 0);
+    box-shadow: 0 0 0 14px rgba(20, 184, 166, 0);
   }
 }
 @keyframes orbo-bounce {
@@ -145,7 +159,20 @@ body {
   animation-delay: 0.3s;
 }
 
+/* Faint teal dot field — used on empty states and auth. */
 .bg-grid {
-  background-image: radial-gradient(rgba(124, 108, 255, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(20, 184, 166, 0.1) 1px, transparent 1px);
   background-size: 22px 22px;
+}
+
+/* Telegram-style chat wallpaper: a soft teal wash + a low-contrast dot weave
+   that stays quiet enough for white incoming bubbles to read cleanly. */
+.chat-wallpaper {
+  background-color: #e9f1f0;
+  background-image:
+    radial-gradient(rgba(13, 148, 136, 0.09) 1.5px, transparent 1.6px),
+    radial-gradient(rgba(13, 148, 136, 0.06) 1.5px, transparent 1.6px),
+    linear-gradient(180deg, #eef4f3 0%, #e6efee 100%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+  background-position: 0 0, 14px 14px, 0 0;
 }

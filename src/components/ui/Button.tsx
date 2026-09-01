@@ -15,8 +15,8 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent-strong text-white hover:bg-accent disabled:opacity-50 shadow-[0_2px_12px_rgba(106,88,255,0.35)]",
-  secondary: "bg-bg-elev-2 text-text hover:bg-[#26263a] border border-border",
+    "bg-accent-strong text-white hover:bg-accent disabled:opacity-50 shadow-[0_2px_12px_rgba(13,148,136,0.30)]",
+  secondary: "bg-bg-elev-2 text-text hover:bg-black/[0.05] border border-border",
   ghost: "text-text-dim hover:text-text hover:bg-bg-elev-2",
   danger: "bg-danger text-white hover:brightness-110",
 };

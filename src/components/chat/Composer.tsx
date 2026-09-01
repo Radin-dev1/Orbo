@@ -71,8 +71,8 @@ export function Composer({ conversationId, onSend, onTyping, onStopTyping }: Pro
   }
 
   return (
-    <div className="shrink-0 border-t border-border px-3 py-3 md:px-4">
-      <div className="flex items-end gap-2 rounded-2xl border border-border bg-bg-elev-2 px-2 py-1.5">
+    <div className="shrink-0 border-t border-border bg-bg-elev px-3 py-3 md:px-4">
+      <div className="flex items-end gap-2 rounded-2xl border border-border bg-bg-elev-2 px-2 py-1.5 transition-colors focus-within:border-accent">
         <button
           onClick={() => fileRef.current?.click()}
           disabled={uploading}

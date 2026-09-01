@@ -28,7 +28,7 @@ export function MessageBubble({ message, mine, grouped, showSender, onEdit, onDe
   if (message.type === "call_event") {
     return (
       <div className="my-2 flex items-center justify-center">
-        <span className="rounded-full bg-bg-elev-2 px-3 py-1 text-xs text-text-dim">
+        <span className="rounded-full border border-border bg-bg-elev/85 px-3 py-1 text-xs text-text-dim shadow-sm backdrop-blur">
           {message.content}
         </span>
       </div>
@@ -74,8 +74,10 @@ export function MessageBubble({ message, mine, grouped, showSender, onEdit, onDe
         <div className={cn("flex items-center gap-1.5", mine ? "flex-row-reverse" : "flex-row")}>
           <div
             className={cn(
-              "relative rounded-2xl px-3.5 py-2 text-[14.5px] leading-relaxed",
-              mine ? "bg-[var(--bubble-me)] text-white" : "bg-[var(--bubble-them)] text-text",
+              "relative rounded-2xl px-3.5 py-2 text-[14.5px] leading-relaxed shadow-sm",
+              mine
+                ? "bg-[var(--bubble-me)] text-white"
+                : "border border-border bg-[var(--bubble-them)] text-text",
               grouped && (mine ? "rounded-tr-md" : "rounded-tl-md"),
             )}
           >
