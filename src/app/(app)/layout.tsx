@@ -12,7 +12,11 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
-  let { data: profile } = await supabase.from("profiles").select("*").eq("id", user.id).single();
+  let { data: profile } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .maybeSingle();
 
   if (!profile) {
     const fallbackUsername =
