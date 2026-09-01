@@ -98,14 +98,27 @@ private window), search each other by username, and start messaging / calling.
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run lint` | ESLint |
 
-## Deployment (Vercel)
+## Deployment (GitHub Actions → Vercel)
 
-1. Push this repo to GitHub and import it in Vercel.
-2. Add the env vars (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`,
-   `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_ICE_SERVERS`).
-   `DATABASE_URL` is only needed locally for migrations.
-3. Add the Vercel URL to Supabase → Authentication → URL Configuration.
-4. Run `npm run migrate` locally against the same project whenever you add migrations.
+`.github/workflows/deploy.yml` builds the app and deploys it to Vercel on every
+push to `main` (and via **Run workflow**). Each run is recorded under the repo's
+**Deployments** tab against the `production` environment, with the live URL.
+
+One-time setup:
+
+1. Create a Vercel access token at <https://vercel.com/account/tokens>.
+2. In the repo: **Settings → Secrets and variables → Actions → Secrets** →
+   add `VERCEL_TOKEN` with that value.
+3. The workflow already carries the Vercel project/org IDs and the public
+   Supabase credentials. Nothing else is required for a first deploy.
+4. After the first deploy, add the Vercel URL to
+   Supabase → Authentication → URL Configuration.
+
+Optional overrides (repo **Variables**, not secrets): `NEXT_PUBLIC_SUPABASE_URL`,
+`NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_MAX_CALL_PARTICIPANTS`. Set
+`SUPABASE_SERVICE_ROLE_KEY` / `NEXT_PUBLIC_ICE_SERVERS` in the Vercel project if
+you need them (both degrade gracefully). Run `npm run migrate` locally against the
+same project whenever you add migrations.
 
 ## Project layout
 
